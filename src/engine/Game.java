@@ -3,19 +3,22 @@ package engine;
 import engine.GFX.GUI;
 import engine.GFX.InputHandler;
 import engine.entity.Entity;
+import engine.entity.Player;
 import engine.world.Board;
 
 public class Game extends Thread {
 
-  protected InputHandler inputz;
+  protected InputHandler input;
   protected GUI gui;
   protected Board board;
 
   public Game() {
-    inputz = new InputHandler();
-    this.board = new Board(20, 10);
+    input = new InputHandler();
+    board = new Board(20, 10);
     gui = new GUI(this);
-    gui.addKeyListener(inputz);
+    gui.addKeyListener(input);
+    new Entity(0, 0, board);
+    new Player(0, 0, board, input);
   }
 
   public void run() {
@@ -38,7 +41,7 @@ public class Game extends Thread {
 
   public void tick() {
     System.out.println("tick!");
-    inputz.tick();
+    input.tick();
     board.tick();
     gui.tick();
   }
@@ -49,7 +52,7 @@ public class Game extends Thread {
 
   public static void main(String[] args) {
     Game game = new Game();
-    new Entity(0, 0, game.getBoard(), inputz);
+
     game.start();
 
   }

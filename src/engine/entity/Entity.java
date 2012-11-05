@@ -3,7 +3,6 @@ package engine.entity;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import engine.GFX.InputHandler;
 import engine.world.Board;
 import engine.world.Tile;
 
@@ -13,20 +12,16 @@ public class Entity {
   int size = 32;
   int x;
   int y;
-  InputHandler ih;
 
-  public Entity(int x, int y, Board b, InputHandler ih) {
+  public Entity(int x, int y, Board b) {
     this.x = x;
     this.y = y;
-    this.board = b;
-    this.ih = ih;
-    this.moveTo(x, y);
+    board = b;
+    moveTo(x, y);
   }
 
   public void tick() {
-    if (ih.UP.pressed) {
-      moveTo(x, y - 1);
-    }
+    moveTo(x, y - 1);
   }
 
   public void moveTo(int x, int y) {

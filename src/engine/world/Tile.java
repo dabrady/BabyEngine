@@ -13,8 +13,8 @@ public class Tile {
   ArrayList<Entity> entities = new ArrayList<Entity>();
 
   public Tile(int x, int y) {
-    this.x = x * SIZE;
-    this.y = y * SIZE;
+    this.x = x * Tile.SIZE;
+    this.y = y * Tile.SIZE;
   }
 
   public void tick() {
@@ -40,11 +40,11 @@ public class Tile {
   }
 
   public void paint(Graphics g) {
-    g.setColor(Color.YELLOW);
-    g.fillRect(x, y, SIZE, SIZE);
+    g.setColor(Color.GREEN);
+    g.fillRect(x, y, Tile.SIZE, Tile.SIZE);
 
     g.setColor(Color.BLACK);
-    g.drawRect(x, y, SIZE, SIZE);
+    g.drawRect(x, y, Tile.SIZE, Tile.SIZE);
 
     for (Entity e : entities) {
       e.paint(g);
