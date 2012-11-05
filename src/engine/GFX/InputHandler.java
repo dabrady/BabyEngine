@@ -8,9 +8,9 @@ public class InputHandler implements KeyListener {
 
   ArrayList<Key> keys = new ArrayList<Key>();
 
-  class Key {
+  public class Key {
 
-    boolean pressed;
+    public boolean pressed;
     int keyCode;
 
     Key(int keyCode) {

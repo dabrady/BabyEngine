@@ -21,10 +21,16 @@ public class Entity {
   }
 
   public void tick() {
-    moveTo(x, y - 1);
+    moveTo(x, y + 1);
+  }
+
+  public void move(int x, int y) {
+    moveTo(this.x + x, this.y + y);
   }
 
   public void moveTo(int x, int y) {
+    this.x = x;
+    this.y = y;
     Tile t = board.getTileAt(x, y);
 
     // leave our old tile if we had one

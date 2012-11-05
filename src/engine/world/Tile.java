@@ -18,8 +18,8 @@ public class Tile {
   }
 
   public void tick() {
-    for (Entity entity : entities) {
-      entity.tick();
+    for (int i = 0; i < entities.size(); i++){
+      entities.get(i).tick();
     }
   }
 
@@ -46,8 +46,8 @@ public class Tile {
     g.setColor(Color.BLACK);
     g.drawRect(x, y, Tile.SIZE, Tile.SIZE);
 
-    for (Entity e : entities) {
-      e.paint(g);
+    for (int i = 0; i < entities.size(); i++) {
+      entities.get(i).paint(g);
     }
   }
 }

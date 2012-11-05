@@ -11,4 +11,13 @@ public class Player extends Entity {
     super(x, y, b);
     this.input = input;
   }
+
+  public void tick() {
+    if (input.UP.pressed) {
+      move(0, -1);
+    }
+    if (input.DOWN.pressed) {
+      move(0, 1);
+    }
+  }
 }

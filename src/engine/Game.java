@@ -40,7 +40,7 @@ public class Game extends Thread {
   }
 
   public void tick() {
-    System.out.println("tick!");
+    //System.out.println("tick!");
     input.tick();
     board.tick();
     gui.tick();
