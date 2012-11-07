@@ -1,6 +1,10 @@
 package engine.world;
 
 import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.List;
+
+import engine.entity.Entity;
 
 public class Board {
 
@@ -52,11 +56,23 @@ public class Board {
     return numCols * Tile.SIZE;
   }
 
+  public int getTileSize() {
+    return Tile.SIZE;
+  }
+
   public void paint(Graphics g) {
+    List<Entity> entities = new ArrayList<Entity>();
     for (int y = 0; y < numRows; y++) {
       for (int x = 0; x < numCols; x++) {
-        board[x][y].paint(g);
+        Tile t = board[x][y];
+        t.paint(g);
+        entities.addAll(t.getEntities());
       }
     }
+
+    for (int i = 0; i < entities.size(); i++) {
+      entities.get(i).paint(g);
+    }
   }
+
 }

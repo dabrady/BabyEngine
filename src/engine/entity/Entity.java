@@ -45,6 +45,6 @@ public class Entity {
 
   public void paint(Graphics g) {
     g.setColor(Color.RED);
-    g.fillOval(tile.getX(), tile.getY(), size, size);
+    g.fillOval(x, y, size, size);
   }
 }

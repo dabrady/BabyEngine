@@ -2,7 +2,6 @@ package engine;
 
 import engine.GFX.GUI;
 import engine.GFX.InputHandler;
-import engine.entity.Entity;
 import engine.entity.Player;
 import engine.world.Board;
 
@@ -17,7 +16,7 @@ public class Game extends Thread {
     board = new Board(20, 10);
     gui = new GUI(this);
     gui.addKeyListener(input);
-    new Entity(0, 0, board);
+    //new Entity(0, 0, board);
     new Player(0, 0, board, input);
   }
 
@@ -52,8 +51,6 @@ public class Game extends Thread {
 
   public static void main(String[] args) {
     Game game = new Game();
-
     game.start();
-
   }
 }

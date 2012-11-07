@@ -3,6 +3,7 @@ package engine.world;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.List;
 
 import engine.entity.Entity;
 
@@ -31,6 +32,10 @@ public class Tile {
     entities.add(entity);
   }
 
+  public List<Entity> getEntities() {
+    return entities;
+  }
+
   public int getX() {
     return x;
   }
@@ -45,9 +50,5 @@ public class Tile {
 
     g.setColor(Color.BLACK);
     g.drawRect(x, y, Tile.SIZE, Tile.SIZE);
-
-    for (int i = 0; i < entities.size(); i++) {
-      entities.get(i).paint(g);
-    }
   }
 }
