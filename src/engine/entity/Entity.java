@@ -10,8 +10,8 @@ public class Entity {
   Board board;
   Tile tile;
   int size = 32;
-  int x;
-  int y;
+  int x, y, xa, ya;
+  Color color = Color.RED;
 
   public Entity(int x, int y, Board b) {
     this.x = x;
@@ -21,11 +21,28 @@ public class Entity {
   }
 
   public void tick() {
-    moveTo(x, y + 1);
+    move(0, 1);
   }
 
-  public void move(int x, int y) {
-    moveTo(this.x + x, this.y + y);
+  public void move() {
+    move(xa, ya);
+  }
+
+  public void move(int xa, int ya) {
+    if (xa == 0 && ya == 0) {
+      this.xa = xa;
+      this.ya = ya;
+    } else {
+
+      moveTo(x + xa, y + ya);
+
+      if (x % board.getTileSize() == 0 &&
+          y % board.getTileSize() == 0) {
+        this.xa = 0;
+        this.ya = 0;
+      }
+    }
+
   }
 
   public void moveTo(int x, int y) {
@@ -44,7 +61,10 @@ public class Entity {
   }
 
   public void paint(Graphics g) {
-    g.setColor(Color.RED);
+    g.setColor(color);
     g.fillOval(x, y, size, size);
+
+    g.setColor(Color.black);
+    g.drawOval(x, y, size, size);
   }
 }

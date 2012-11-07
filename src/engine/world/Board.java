@@ -39,12 +39,10 @@ public class Board {
   // coordinates
   public Tile getTileAt(int x, int y) {
     Tile tile = null;
-    System.out.printf("(%d,%d) :: ", x, y);
     x %= Tile.SIZE * numCols;
     y %= Tile.SIZE * numRows;
     x /= Tile.SIZE;
     y /= Tile.SIZE;
-    System.out.printf("(%d,%d)\n", x, y);
     return board[x][y];
   }
 

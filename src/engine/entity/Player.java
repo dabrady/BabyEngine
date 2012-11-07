@@ -1,15 +1,17 @@
 package engine.entity;
 
+import java.awt.Color;
+
 import engine.GFX.InputHandler;
 import engine.world.Board;
 
 public class Player extends Entity {
-  int xa = 0;
-  int ya = 0;
   InputHandler input;
+
 
   public Player(int x, int y, Board b, InputHandler input) {
     super(x, y, b);
+    color = new Color(128, 248, 192);
     this.input = input;
   }
 
@@ -20,15 +22,7 @@ public class Player extends Entity {
       if (input.LEFT.isPressed)  xa = -1;
       if (input.RIGHT.isPressed) xa =  1;
     } else {
-      move(xa, ya);
-
-      if (x % board.getTileSize() == 0 &&
-          y % board.getTileSize() == 0) {
-        xa = 0;
-        ya = 0;
-      }
+      move();
     }
-
-
   }
 }

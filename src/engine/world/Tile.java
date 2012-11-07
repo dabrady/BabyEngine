@@ -12,6 +12,7 @@ public class Tile {
   int y;
   final static int SIZE = 32;
   ArrayList<Entity> entities = new ArrayList<Entity>();
+  Color color = Color.green;
 
   public Tile(int x, int y) {
     this.x = x * Tile.SIZE;
@@ -45,7 +46,7 @@ public class Tile {
   }
 
   public void paint(Graphics g) {
-    g.setColor(Color.GREEN);
+    g.setColor(color);
     g.fillRect(x, y, Tile.SIZE, Tile.SIZE);
 
     g.setColor(Color.BLACK);
