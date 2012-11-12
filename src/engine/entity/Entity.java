@@ -29,15 +29,18 @@ public class Entity {
   }
 
   public void move(int xa, int ya) {
-    if (xa == 0 && ya == 0) {
+
+    // if not already moving
+    if (this.xa == 0 && this.ya == 0) {
+      // start accelerating.
       this.xa = xa;
       this.ya = ya;
-    } else {
 
+    } else {
+      // otherwise, move.
       moveTo(x + xa, y + ya);
 
-      if (x % board.getTileSize() == 0 &&
-          y % board.getTileSize() == 0) {
+      if (x % board.getTileSize() == 0 && y % board.getTileSize() == 0) {
         this.xa = 0;
         this.ya = 0;
       }
